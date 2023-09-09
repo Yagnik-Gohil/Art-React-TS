@@ -1,4 +1,16 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family: 'ADLaM Display', cursive, Roboto, Helvetica, sans-serif;
+  font-size: medium;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.active {
+  color: red;
+}
+.lh-32 {
+  line-height: 32px;
 }
