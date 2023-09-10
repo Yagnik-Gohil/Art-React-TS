@@ -1,4 +1,31 @@
 html, body {
   margin: 0;
   padding: 0;
+  font-family: cursive, Roboto, Helvetica, sans-serif;
+  font-size: medium;
+}
+.f-brand {
+  font-family: 'ADLaM Display', cursive, Roboto, Helvetica, sans-serif;
+}
+a, .text-decoration-none {
+  text-decoration: none;
+  color: black;
+}
+.active {
+  color: red;
+}
+.lh-32 {
+  line-height: 32px;
+}
+.min-100vh {
+  min-height: 100vh;
+}
+.login-form {
+  min-width: 30vw;
+}
+.otp-box {
+  width: 50px;
+}
+.cp {
+  cursor: pointer;
 }
