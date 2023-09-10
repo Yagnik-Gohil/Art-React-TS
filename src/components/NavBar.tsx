@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <Container fluid className="d-flex justify-content-between p-2 border-bottom">
+    <Container fluid className="d-flex justify-content-between p-2 border-bottom f-brand">
       <div>
         <NavLink className="lh-32 mx-2" to="/">ART MART</NavLink>
       </div>
