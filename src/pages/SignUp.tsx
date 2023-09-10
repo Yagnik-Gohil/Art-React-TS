@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [invalidPasswordError, setInvalidPasswordError] = useState('');
@@ -68,6 +69,7 @@ function SignUp() {
     }
     if (isValid) {
       // Submit Form
+      navigate('/verify-email');
     }
     setValidated(true);
   };

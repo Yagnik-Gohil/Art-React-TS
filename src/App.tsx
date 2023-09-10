@@ -8,6 +8,7 @@ import SellYourArt from './pages/SellYourArt';
 import Artists from './pages/Artists';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import VerifyEmail from './pages/VerifyEmail';
 
 function App() {
   const location = useLocation();
@@ -20,12 +21,13 @@ function App() {
     { path: '/sell-your-art', element: <SellYourArt /> },
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <SignUp /> },
+    { path: '/verify-email', element: <VerifyEmail /> },
   ]);
   
   // Conditionally render NavBar based on the route
   return (
     <Fragment>
-      {!['/login', '/signup'].includes(location.pathname) && <NavBar />}
+      {!['/login', '/signup', '/verify-email'].includes(location.pathname) && <NavBar />}
       <Container>{element}</Container>
     </Fragment>
   );

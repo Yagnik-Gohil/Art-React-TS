@@ -7,7 +7,7 @@ html, body {
 .f-brand {
   font-family: 'ADLaM Display', cursive, Roboto, Helvetica, sans-serif;
 }
-a {
+a, .text-decoration-none {
   text-decoration: none;
   color: black;
 }
@@ -22,4 +22,10 @@ a {
 }
 .login-form {
   min-width: 30vw;
+}
+.otp-box {
+  width: 50px;
+}
+.cp {
+  cursor: pointer;
 }
