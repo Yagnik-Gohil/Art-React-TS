@@ -16,34 +16,30 @@ function VerifyEmail() {
   const [otp, setOtp] = useState<string[]>([]); // State variable to store OTP
   const inputRefs = useRef<Array<HTMLInputElement | null>>([]);
 
-  const handleChange = (event: any, index: number) => {
-    const { value } = event.target;
-
-    // Check for backspace key (keyCode 8) and move to the previous input
-    if (event.nativeEvent.inputType === 'deleteContentBackward' && index > 0) {
+  const handleKeyPress = (event: any, index: number) => {
+    if (event.key === 'Backspace') {
       // Clear the current input and move focus to the previous input
       const updatedOtp = [...otp];
       updatedOtp[index] = '';
       setOtp(updatedOtp);
-      inputRefs.current[index]?.focus();
+      inputRefs.current[index - 1]?.focus();
       return;
     }
-
+  };
+  const handleChange = (event: any, index: number) => {
+    const { value } = event.target;
+    const updatedOtp = [...otp];
     // Check if the entered value is a number between 0 and 9
     if (/^[0-9]$/.test(value)) {
-      // Update the OTP state
-      const updatedOtp = [...otp];
       updatedOtp[index] = value;
-      setOtp(updatedOtp);
-
       // Focus on the next input field if a character is entered
       if (value.length === 1 && index < inputRefs.current.length - 1) {
         inputRefs.current[index + 1]?.focus();
       }
     } else {
-      // Clear the input if it's not a number between 0 and 9
-      event.target.value = '';
+      updatedOtp[index] = '';
     }
+    setOtp(updatedOtp);
   };
 
   const handleSubmit = (event: React.FormEvent) => {
@@ -68,6 +64,7 @@ function VerifyEmail() {
                     value={otp[index] || ''}
                     type="text"
                     min={0}
+                    onKeyUp={(event) => handleKeyPress(event, index)}
                     onChange={(event) => handleChange(event, index)}
                     ref={(inputRef: any) =>
                       (inputRefs.current[index] = inputRef)
