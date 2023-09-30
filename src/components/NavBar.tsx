@@ -6,19 +6,19 @@ import { NavLink } from 'react-router-dom';
 
 function NavBar() {
   return (
-    <Container fluid className="d-flex justify-content-between p-2 border-bottom f-brand">
+    <Container fluid className="d-flex justify-content-between p-2 border-bottom">
       <div>
-        <NavLink className="lh-32 mx-2" to="/">ART MART</NavLink>
+        <NavLink className="lh-32 mx-2 f-brand" to="/">Art Mart</NavLink>
       </div>
       <Nav className="justify-content-center">
         {/* <Nav.Item className='mx-4'> */}
-          <NavLink className='mx-4 lh-32' to="/explore">EXPLORE</NavLink>
+          <NavLink className='mx-4 lh-32' to="/explore">Explore</NavLink>
         {/* </Nav.Item> */}
         {/* <Nav.Item className='mx-4'> */}
-          <NavLink className='mx-4 lh-32' to="/artists">ARTISTS</NavLink>
+          <NavLink className='mx-4 lh-32' to="/artists">Artists</NavLink>
         {/* </Nav.Item> */}
         {/* <Nav.Item className='mx-4'> */}
-          <NavLink className='mx-4 lh-32' to="sell-your-art">SELL YOUR ART</NavLink>
+          <NavLink className='mx-4 lh-32' to="sell-your-art">Sell Your Art</NavLink>
         {/* </Nav.Item> */}
       </Nav>
       <div>

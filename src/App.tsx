@@ -1,7 +1,7 @@
 import { useRoutes, useLocation } from 'react-router';
 import { Fragment } from 'react';
 import { Container } from 'react-bootstrap';
-import Home from './pages/home';
+import Home from './pages/Home';
 import NavBar from './components/NavBar';
 import Explore from './pages/Explore';
 import SellYourArt from './pages/SellYourArt';

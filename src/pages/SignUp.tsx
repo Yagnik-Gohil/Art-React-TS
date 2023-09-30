@@ -8,18 +8,21 @@ function SignUp() {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [invalidPasswordError, setInvalidPasswordError] = useState('');
 
+  const regexForNumber = /\d/;
+  const regexForSpecialCharacter = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+
   const isPasswordValid = (password: string) => {
     if (password.length < 8) {
       setInvalidPasswordError('Password must be at least 8 characters long.');
       return false;
     }
 
-    if (!/\d/.test(password)) {
+    if (!regexForNumber.test(password)) {
       setInvalidPasswordError('Password must contain at least one number.');
       return false;
     }
 
-    if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+    if (!regexForSpecialCharacter.test(password)) {
       setInvalidPasswordError(
         'Password must contain at least one special character.',
       );
@@ -109,9 +112,9 @@ function SignUp() {
               <Form.Text className="text-muted">
                   Password must meet the following criteria:
                   <ul>
-                    <li>At least 8 characters long.</li>
-                    <li>Contain at least one number.</li>
-                    <li>Contain at least one special character (!@#$%^&*).</li>
+                    <li className={form.password.length >= 8 ? 'valid' : ''}>At least 8 characters long.</li>
+                    <li className={regexForNumber.test(form.password) ? 'valid' : ''}>Contain at least one number.</li>
+                    <li className={regexForSpecialCharacter.test(form.password) ? 'valid' : ''}>Contain at least one special character (!@#$%^&*).</li>
                   </ul>
               </Form.Text>
               <Form.Control.Feedback type="invalid">
