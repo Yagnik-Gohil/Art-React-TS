@@ -11,8 +11,7 @@ function SideBar() {
   };
   return (
     <Fragment>
-      <br></br>
-      <h4 className="f-brand">Filters</h4>
+      <h4 className="fw-bold mt-2">Filters</h4>
       <Accordion defaultActiveKey={['0']} alwaysOpen>
         <Accordion.Item eventKey="0">
           <Accordion.Header>PRICE</Accordion.Header>

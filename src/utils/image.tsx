@@ -1,6 +1,6 @@
 const Images = [
   {
-    title: 'This Is Title, Long Title',
+    title: 'This Is Title, Very Very Long Title',
     price: 5000,
     currency: 'INR',
     path: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
