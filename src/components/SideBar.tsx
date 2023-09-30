@@ -1,20 +1,36 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
+import Accordion from 'react-bootstrap/Accordion';
+import MultiRangeSlider from './MultiRangeSlider';
 
 function SideBar() {
+
+
+  
+  const handleRange = (min: number, max: number) => {
+    console.log(min,max);
+  };
   return (
     <Fragment>
       <br></br>
       <h4 className="f-brand">Filters</h4>
-      <div className="vstack gap-3">
-        <div className="bg-light border">First item</div>
-        <div className="bg-light border">Second item</div>
-        <div className="bg-light border">Third item</div>
-        <div className="bg-light border">Third item</div>
-        <div className="bg-light border">Third item</div>
-        <div className="bg-light border">Third item</div>
-        <div className="bg-light border">Third item</div>
-        <div className="bg-light border">Third item</div>
-      </div>
+      <Accordion defaultActiveKey={['0']} alwaysOpen>
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>PRICE</Accordion.Header>
+          <Accordion.Body>
+            <MultiRangeSlider
+              min={1}
+              max={50000}
+              onChange={({ min, max }: { min: number; max: number }) =>
+                handleRange(min, max)
+              }
+            />
+          </Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="1">
+          <Accordion.Header>COLOUR</Accordion.Header>
+          <Accordion.Body></Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </Fragment>
   );
 }
