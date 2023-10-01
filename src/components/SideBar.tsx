@@ -4,6 +4,7 @@ import MultiRangeSlider from './MultiRangeSlider';
 import Form from 'react-bootstrap/Form';
 import Colours from '../utils/colour';
 import Medium from '../utils/medium';
+import DisplaySpots from '../utils/displaySpots';
 
 function SideBar() {
   const handleRange = (min: number, max: number) => {
@@ -61,6 +62,21 @@ function SideBar() {
                 return (
                   <div className="mb-3" key={index}>
                     <Form.Check type="checkbox" label={data.medium} />
+                  </div>
+                );
+              })}
+            </Form>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey="3">
+          <Accordion.Header>DISPLAY SPOTS</Accordion.Header>
+          <Accordion.Body className='medium-filter custom-scroll'>
+            <Form>
+              {DisplaySpots.map((data: any, index:number) => {
+                return (
+                  <div className="mb-3" key={index}>
+                    <Form.Check type="checkbox" label={data.place} />
                   </div>
                 );
               })}
