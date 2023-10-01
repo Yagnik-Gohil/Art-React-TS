@@ -3,6 +3,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import MultiRangeSlider from './MultiRangeSlider';
 import Form from 'react-bootstrap/Form';
 import Colours from '../utils/colour';
+import Medium from '../utils/medium';
 
 function SideBar() {
   const handleRange = (min: number, max: number) => {
@@ -47,13 +48,22 @@ function SideBar() {
                   </div>
                 );
               })}
-              {/* <div className="d-flex justify-content-between mb-3">
-                <Form.Check type="checkbox" label='White'/>
-                <div className='d-flex align-items-center justify-content-center'>
-                  <span className='color-icon-bg'>◯</span>
-                  <span style={{color: 'White'}} className='color-icon-fg'>⬤</span>
-                </div>
-              </div> */}
+            </Form>
+          </Accordion.Body>
+        </Accordion.Item>
+
+
+        <Accordion.Item eventKey="2">
+          <Accordion.Header>MEDIUM</Accordion.Header>
+          <Accordion.Body className='medium-filter custom-scroll'>
+            <Form>
+              {Medium.map((data: any, index:number) => {
+                return (
+                  <div className="mb-3" key={index}>
+                    <Form.Check type="checkbox" label={data.medium} />
+                  </div>
+                );
+              })}
             </Form>
           </Accordion.Body>
         </Accordion.Item>
