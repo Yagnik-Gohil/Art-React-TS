@@ -206,7 +206,7 @@ a, .text-decoration-none {
   position: absolute;
   cursor: pointer;
 }
-.medium-filter {
+.form-filter {
   max-height: 15rem;
   overflow: scroll;
   overflow-x: hidden;

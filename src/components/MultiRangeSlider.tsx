@@ -66,14 +66,14 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
   const handleMin = (event: any) => {
     // const value = Math.max(Math.min(+event.target.value, maxVal - 1), min);
     if(event.target.value < maxVal) {
-      setMinVal(event.target.value);
+      setMinVal(+event.target.value);
     }
     // event.target.value = value.toString();
   };
   const handleMax = (event: any) => {
     // const value = Math.min(Math.max(+event.target.value, minVal + 1), max);
     if(event.target.value <= max) {
-      setMaxVal(event.target.value);
+      setMaxVal(+event.target.value);
     }
     // event.target.value = value.toString();
   };
@@ -84,15 +84,14 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
         setMinVal(Math.max(+maxVal - 100, min));
       }
       if (+minVal < +min) {
-        setMinVal(min);
+        setMinVal(+min);
       }
     } else {
       if (+minVal > +maxVal) {
-        console.log('first')
         setMaxVal(Math.min(+minVal + 100, max));
       }
       if (+maxVal > +max) {
-        setMaxVal(max);
+        setMaxVal(+max);
       }
     }
   };
@@ -128,11 +127,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           max={max}
           value={minVal}
           ref={minValRef}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            const value = Math.min(+event.target.value, maxVal - 1);
-            setMinVal(value);
-            event.target.value = value.toString();
-          }}
+          onChange={handleMin}
           className={classnames('thumb thumb--zindex-3', {
             'thumb--zindex-5': minVal > max - 100,
           })}
@@ -143,11 +138,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           max={max}
           value={maxVal}
           ref={maxValRef}
-          onChange={(event: ChangeEvent<HTMLInputElement>) => {
-            const value = Math.max(+event.target.value, minVal + 1);
-            setMaxVal(value);
-            event.target.value = value.toString();
-          }}
+          onChange={handleMax}
           className="thumb thumb--zindex-4"
         />
 
