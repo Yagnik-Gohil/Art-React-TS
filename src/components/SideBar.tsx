@@ -1,13 +1,12 @@
 import { Fragment } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 import MultiRangeSlider from './MultiRangeSlider';
+import Form from 'react-bootstrap/Form';
+import Colours from '../utils/colour';
 
 function SideBar() {
-
-
-  
   const handleRange = (min: number, max: number) => {
-    console.log(min,max);
+    console.log(min, max);
   };
   return (
     <Fragment>
@@ -27,7 +26,36 @@ function SideBar() {
         </Accordion.Item>
         <Accordion.Item eventKey="1">
           <Accordion.Header>COLOUR</Accordion.Header>
-          <Accordion.Body></Accordion.Body>
+          <Accordion.Body className='color-filter custom-scroll'>
+            <Form>
+              {Colours.map((data: any, index:number) => {
+                const textColorStyle = {
+                  color: data.color // Use the data.color value here
+                };
+                return (
+                  <div className="d-flex justify-content-between mb-3" key={index}>
+                    <Form.Check type="checkbox" label={data.color} />
+                    <div className="d-flex align-items-center justify-content-center">
+                      <span className="color-icon-bg">◯</span>
+                      <span
+                        style={textColorStyle}
+                        className="color-icon-fg"
+                      >
+                        ⬤
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+              {/* <div className="d-flex justify-content-between mb-3">
+                <Form.Check type="checkbox" label='White'/>
+                <div className='d-flex align-items-center justify-content-center'>
+                  <span className='color-icon-bg'>◯</span>
+                  <span style={{color: 'White'}} className='color-icon-fg'>⬤</span>
+                </div>
+              </div> */}
+            </Form>
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
     </Fragment>
