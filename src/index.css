@@ -1,40 +1,62 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: 'Quicksand', sans-serif;
   font-size: medium;
 }
+
 .f-brand {
   font-family: 'ADLaM Display', cursive;
 }
-a, .text-decoration-none {
+
+a,
+.text-decoration-none {
   text-decoration: none;
   color: black;
 }
+
 .active {
   color: red;
 }
+.heart-fill {
+  color: #fb3958;
+}
+.fill-black {
+  color: #000000;
+}
+
 .lh-32 {
   line-height: 32px;
 }
+
 .min-100vh {
   min-height: 100vh;
 }
+
 .login-form {
   min-width: 30vw;
 }
+
 .otp-box {
   width: 50px;
 }
+
 .cp {
   cursor: pointer;
 }
+
 .valid {
   color: green;
 }
-.bg-white { 
+
+.bg-white {
   background-color: white;
 }
+
+
+
+/* ===== Card Start ===== */
 
 .explore-card {
   height: auto;
@@ -42,42 +64,68 @@ a, .text-decoration-none {
   min-width: 15rem;
   padding: 1rem;
 }
-.explore-card > div {
+
+.explore-card>div {
   height: 15rem;
   overflow: hidden;
+  position: relative;
 }
-.explore-card > div > img {
+
+.explore-card-icons-div {
+  position: absolute;
+  bottom: -5rem;
+  /* Start hidden below the container */
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  transition: bottom 0.3s ease-in-out;
+  /* Use a transition on the 'bottom' property */
+}
+
+.explore-card>div:hover .explore-card-icons-div {
+  bottom: 0;
+}
+
+.explore-card>div:hover .explore-card-image {
+  width: 100%;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.explore-card-image {
   width: 100%;
   height: 15rem;
   object-fit: cover;
 
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
-	-webkit-transition: .5s ease-in-out;
-	transition: .5s ease-in-out;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
 }
-.explore-card > div > img:hover {
-  width: 100%;
-	-webkit-transform: scale(1);
-	transform: scale(1);
+
+.explore-icon:hover {
+  transform: scale(1.2);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
 }
+
+/* ===== Card End ===== */
+
+
+/* ===== Sidebar Start ===== */
+
 .sidebar {
   position: sticky;
   top: 0;
-  height: 100%; /* Adjust the height as needed */
-  z-index: 1; /* Ensure it appears above other content */
+  height: 100%;
+  z-index: 1;
   overflow-y: auto;
 }
 
-
-
-
-
-
-
-
-
-
+/* ===== Sidebar End ===== */
 
 
 
@@ -202,10 +250,12 @@ a, .text-decoration-none {
   overflow-x: hidden;
   scrollbar-width: none;
 }
+
 .color-icon-bg {
   position: absolute;
   cursor: pointer;
 }
+
 .form-filter {
   max-height: 15rem;
   overflow: scroll;
@@ -221,26 +271,24 @@ a, .text-decoration-none {
 
 /* ===== Scrollbar Start ===== */
 
-.custom-scroll::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
-	border-radius: 1px;
-	background-color: #F5F5F5;
+.custom-scroll::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+  background-color: #F5F5F5;
   cursor: grabbing;
 }
 
-.custom-scroll::-webkit-scrollbar
-{
-	width: 4px;
-	background-color: #F5F5F5;
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+  background-color: #F5F5F5;
   cursor: grabbing;
 }
 
-.custom-scroll::-webkit-scrollbar-thumb
-{
-	border-radius: 5px;
-	-webkit-box-shadow: inset 0 0 1px rgba(0,0,0,0.2);
-	background-color: #979797;
+.custom-scroll::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+  background-color: #979797;
   cursor: grabbing;
 }
+
 /* ===== Scrollbar End ===== */
