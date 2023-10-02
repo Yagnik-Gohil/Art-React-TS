@@ -1,16 +1,47 @@
+
 # Art-React-TS
 
-A brief description of what this project does and who it's for
+Project Created in React
 
-#### Clone this project and Run below command to setup:
+## Installation
 
-```http
-  npm install
-  npm start
+Install my-project with npm
+
+```bash
+  npm install my-project
+  cd my-project
+```
+    
+## Deployment
+
+To deploy this project run
+
+```bash
+  npm run deploy
 ```
 
-#### Eslint commad:
+## Run Locally
 
-```http
-  npx prettier --write .
+Clone the project
+
+```bash
+  git clone https://link-to-project
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
+
+```bash
+  npm run start
 ```
