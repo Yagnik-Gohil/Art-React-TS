@@ -24,7 +24,9 @@ function NavBar() {
       <div>
         <BiHeart size={28} className='mx-2'></BiHeart>
         <BsCart size={28} className='mx-2'></BsCart>
+        <NavLink to="/profile">
         <BiUser size={28} className='mx-2'></BiUser>
+        </NavLink>
       </div>
     </Container>
   );
