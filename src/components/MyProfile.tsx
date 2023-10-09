@@ -11,13 +11,50 @@ import { FaCircleUser } from 'react-icons/fa6';
 
 const MyProfile = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [fullName, setFullName] = useState('Name Surname');
-  const [email, setEmail] = useState('mymail23@gmail.com');
-  const [address, setAddress] = useState('1234 Main St');
   const [city, setCity] = useState('Bhavnagar');
   const [state, setState] = useState('Gujrat');
-  const [zipCode, setZipCode] = useState('36548');
   const [country, setCountry] = useState('India');
+
+  const initialFormData = {
+    fullName: 'name surname',
+    email: 'mymail123@gmail.com',
+    address: '152,pryosha,bhavnagar',
+    zipCode: '365501',
+  };
+
+  const [form, setForm] = useState(initialFormData);
+
+  const handleForm = (e: any) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleCity = (e: any) => {
+    setCity(e.target.value);
+  };
+
+  const handleState = (e: any) => {
+    setState(e.target.value);
+  };
+
+  const handleCountry = (e: any) => {
+    setCountry(e.target.value);
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleSaveClick = () => {
+    setIsEditing(false);
+  };
+
+  const handleCancelClick = () => {
+    setIsEditing(false);
+    setForm(initialFormData);
+  };
 
   const UploadAndDisplayImage = () => {
     const [selectedImage, setSelectedImage] = useState<File | null>(null);
@@ -27,35 +64,32 @@ const MyProfile = () => {
         <Card className="my-4">
           <div className="card-body">
             <div className="row">
-              <div className="col-md-3 my-auto text-center p-2  col-sm-12">
-                {selectedImage && (
-                  <div>
-                    <Image
-                    className='profile-img '
+              <div className="col-md-3 my-auto text-center p-2 col-sm-12">
+                {selectedImage ? (
+                  <Image
+                    className="profile-img"
                     roundedCircle
-                      alt="not found"
-                      src={URL.createObjectURL(selectedImage)}
-                    />
-                    <br />
-                  </div>
+                    alt="Selected Image"
+                    src={URL.createObjectURL(selectedImage)}
+                  />
+                ) : (
+                  <FaCircleUser className="profile-img" />
                 )}
               </div>
               <div className="col-md-6 my-auto col-sm-12">
-
                 <CardTitle>Upload a New Photo</CardTitle>
                 <CardText>
-                <input
-                  type="file"
-                  name="myImage"
-                  onChange={(event) => {
-                    const selectedFile =
-                      event.target.files && event.target.files[0];
-                    if (selectedFile) {
-                      console.log(selectedFile);
-                      setSelectedImage(selectedFile);
-                    }
-                  }}
-                />
+                  <input
+                    type="file"
+                    name="myImage"
+                    onChange={(event) => {
+                      const selectedFile =
+                        event.target.files && event.target.files[0];
+                      if (selectedFile) {
+                        setSelectedImage(selectedFile);
+                      }
+                    }}
+                  />
                 </CardText>
                 <Button className="btn btn-primary">Update</Button>
               </div>
@@ -66,38 +100,9 @@ const MyProfile = () => {
     );
   };
 
-  const handleEditClick = () => {
-    setIsEditing(!isEditing);
-  };
-
-  const handelCity = (e: any) => {
-    setCity(e.target.value);
-  };
-
-  const handleSaveClick = () => {
-    setIsEditing(false);
-  };
   return (
     <div className="profile-page rounded">
-      {/* <Card className="my-4">
-        <div className="card-body">
-          <div className="row">
-            <div className="col-md-3 my-auto text-center p-2  col-sm-12">
-              <FaCircleUser fontSize='100' />
-            </div>
-            <div className="col-md-6 my-auto col-sm-12">
-              <CardTitle>Upload a New Photo</CardTitle>
-              <CardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </CardText>
-              <Button className="btn btn-primary">Update</Button>
-            </div>
-          </div>
-        </div>
-      </Card> */}
       <UploadAndDisplayImage />
-
       <Form>
         <div className="mb-3 row">
           <Form.Group className="col" controlId="formGridEmail">
@@ -105,9 +110,10 @@ const MyProfile = () => {
             <Form.Control
               type="text"
               placeholder="Enter your name"
-              value={fullName}
+              value={form.fullName}
+              name="fullName"
               disabled={!isEditing}
-              onChange={(e) => setFullName(e.target.value)}
+              onChange={handleForm}
             />
           </Form.Group>
 
@@ -115,10 +121,11 @@ const MyProfile = () => {
             <Form.Label>Email</Form.Label>
             <Form.Control
               type="email"
+              name="email"
               placeholder="Enter email"
-              value={email}
+              value={form.email}
               disabled={!isEditing}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleForm}
             />
           </Form.Group>
         </div>
@@ -127,9 +134,10 @@ const MyProfile = () => {
           <Form.Label>Address</Form.Label>
           <Form.Control
             placeholder="1234 Main St"
-            value={address}
+            name="address"
+            value={form.address}
             disabled={!isEditing}
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={handleForm}
           />
         </Form.Group>
 
@@ -139,7 +147,7 @@ const MyProfile = () => {
             <Form.Select
               defaultValue={country}
               disabled={!isEditing}
-              onChange={(e) => setCountry(e.target.value)}
+              onChange={handleCountry}
             >
               <option>Choose...</option>
               <option>India</option>
@@ -153,7 +161,7 @@ const MyProfile = () => {
             <Form.Select
               defaultValue={state}
               disabled={!isEditing}
-              onChange={(e) => setState(e.target.value)}
+              onChange={handleState}
             >
               <option>Choose...</option>
               <option>Gujrat</option>
@@ -167,10 +175,11 @@ const MyProfile = () => {
             <Form.Label>Zip Code</Form.Label>
             <Form.Control
               type="text"
+              name="zipCode"
               placeholder="Enter code"
-              value={zipCode}
+              value={form.zipCode}
               disabled={!isEditing}
-              onChange={(e) => setZipCode(e.target.value)}
+              onChange={handleForm}
             />
           </Form.Group>
           <Form.Group className="col" controlId="formGridState">
@@ -178,7 +187,7 @@ const MyProfile = () => {
             <Form.Select
               defaultValue={city}
               disabled={!isEditing}
-              onChange={handelCity}
+              onChange={handleCity}
             >
               <option>Choose...</option>
               <option>Bhavnagar</option>
@@ -189,27 +198,37 @@ const MyProfile = () => {
         </div>
 
         {isEditing ? (
-          <Button className="profile-btn" onClick={handleSaveClick}>
-            Save
-          </Button>
+          <div className="row">
+            <div className="col-md-6">
+              <Button className="profile-btn w-100" onClick={handleSaveClick}>
+                Save
+              </Button>
+            </div>
+            <div className="col-md-6">
+              <Button
+                className="profile-btn w-100"
+                type="button"
+                onClick={handleCancelClick}
+              >
+                Cancel
+              </Button>
+            </div>
+          </div>
         ) : (
-          <Button className="profile-btn" onClick={handleEditClick}>
+          <Button className="profile-btn px-5" onClick={handleEditClick}>
             Edit
           </Button>
         )}
       </Form>
 
-      <hr></hr>
+      <hr />
 
       <h2 className="pb-3">Change Password</h2>
       <Form className="pb-4">
+      <Form className="pb-4">
         <Form.Group className="col my-2" controlId="formGridEmail">
           <Form.Label>Current Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Enter Current Password"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <Form.Control type="password" placeholder="Enter Current Password" />
         </Form.Group>
         <Form.Group className="col my-2" controlId="formGridEmail">
           <Form.Label>New Password</Form.Label>
@@ -219,7 +238,8 @@ const MyProfile = () => {
           <Form.Label>Retype New Password</Form.Label>
           <Form.Control type="password" placeholder="Retype New Password" />
         </Form.Group>
-        <Button className="profile-btn my-3">Save</Button>
+        <Button className="profile-btn my-3 px-5">Save</Button>
+      </Form>
       </Form>
     </div>
   );
