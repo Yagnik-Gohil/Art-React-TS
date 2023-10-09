@@ -6,9 +6,9 @@ const ProfileNav = () => {
 
         <div>
           <div className="">
-            <ul className="nav-list border rounded">
+            <ul className="navList">
               <li>
-                <Link to={'/profile'} className="nav-link border border-bottom-0">
+                <Link to={'/profile'} className="nav-link border rounded-top border-bottom-0">
                   PROFILE
                 </Link>
               </li>
@@ -23,7 +23,7 @@ const ProfileNav = () => {
                 </Link>
               </li>
               <li>
-                <Link to={'/'} className="nav-link border ">
+                <Link to={'/'} className="nav-link border rounded-bottom">
                   LOGOUT
                 </Link>
               </li>
