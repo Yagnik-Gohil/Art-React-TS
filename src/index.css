@@ -298,30 +298,10 @@ a,
   padding: 0.2rem;
 }
 
-.big-icon {
-  font-size: 10vw;
-}
-
-.profile-btn {
-
-  min-width: 9rem;
-  background-color: #81b3ff;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  padding: 0.3rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.profile-btn:hover {
-  background-color: #bcd4f8;
-}
-
 .profile-img{
-  height: 120px;
-  width: 120px;
   object-fit: cover;
+  width: 6rem;
+  height: 6rem;
 }
 
 .history-table td{
@@ -332,18 +312,18 @@ a,
   border: none;
 }
 
-.nav-list {
+.navList {
   list-style-type: none;
   padding: 0;
 }
 
-.nav-list .nav-link {
+.navList .nav-link {
   padding: 0.9rem 2rem;
   margin: 0 auto;
   cursor: pointer;
 }
 
-.nav-list .nav-link:hover {
+.navList .nav-link:hover {
   background-color: #d8e7ff;
 }
 

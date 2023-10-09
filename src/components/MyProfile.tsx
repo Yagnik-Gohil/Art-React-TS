@@ -7,6 +7,7 @@ import {
   Form,
   Image,
 } from 'react-bootstrap';
+import { FaCircleUser } from 'react-icons/fa6';
 
 const MyProfile = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -18,8 +19,59 @@ const MyProfile = () => {
   const [zipCode, setZipCode] = useState('36548');
   const [country, setCountry] = useState('India');
 
+  const UploadAndDisplayImage = () => {
+    const [selectedImage, setSelectedImage] = useState<File | null>(null);
+
+    return (
+      <div>
+        <Card className="my-4">
+          <div className="card-body">
+            <div className="row">
+              <div className="col-md-3 my-auto text-center p-2  col-sm-12">
+                {selectedImage && (
+                  <div>
+                    <Image
+                    className='profile-img '
+                    roundedCircle
+                      alt="not found"
+                      src={URL.createObjectURL(selectedImage)}
+                    />
+                    <br />
+                  </div>
+                )}
+              </div>
+              <div className="col-md-6 my-auto col-sm-12">
+
+                <CardTitle>Upload a New Photo</CardTitle>
+                <CardText>
+                <input
+                  type="file"
+                  name="myImage"
+                  onChange={(event) => {
+                    const selectedFile =
+                      event.target.files && event.target.files[0];
+                    if (selectedFile) {
+                      console.log(selectedFile);
+                      setSelectedImage(selectedFile);
+                    }
+                  }}
+                />
+                </CardText>
+                <Button className="btn btn-primary">Update</Button>
+              </div>
+            </div>
+          </div>
+        </Card>
+      </div>
+    );
+  };
+
   const handleEditClick = () => {
     setIsEditing(!isEditing);
+  };
+
+  const handelCity = (e: any) => {
+    setCity(e.target.value);
   };
 
   const handleSaveClick = () => {
@@ -27,29 +79,24 @@ const MyProfile = () => {
   };
   return (
     <div className="profile-page rounded">
-      <Card className="my-4">
+      {/* <Card className="my-4">
         <div className="card-body">
           <div className="row">
-            <div className="col-md-2">
-              <Image
-                className="profile-img"
-                src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&q=70&fm=webp"
-                width={'120px'}
-                height={'120px'}
-                roundedCircle
-              />
+            <div className="col-md-3 my-auto text-center p-2  col-sm-12">
+              <FaCircleUser fontSize='100' />
             </div>
-            <div className="col-md-8">
+            <div className="col-md-6 my-auto col-sm-12">
               <CardTitle>Upload a New Photo</CardTitle>
               <CardText>
                 With supporting text below as a natural lead-in to additional
                 content.
               </CardText>
-              <Button className="profile-btn">Update</Button>
+              <Button className="btn btn-primary">Update</Button>
             </div>
           </div>
         </div>
-      </Card>
+      </Card> */}
+      <UploadAndDisplayImage />
 
       <Form>
         <div className="mb-3 row">
@@ -131,7 +178,7 @@ const MyProfile = () => {
             <Form.Select
               defaultValue={city}
               disabled={!isEditing}
-              onChange={(e) => setCity(e.target.value)}
+              onChange={handelCity}
             >
               <option>Choose...</option>
               <option>Bhavnagar</option>
