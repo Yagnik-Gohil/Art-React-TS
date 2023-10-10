@@ -9,6 +9,11 @@ import Artists from './pages/Artists';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import VerifyEmail from './pages/VerifyEmail';
+import Profile from './pages/Profile';
+import MyCart from './components/MyCart';
+import Dashboard from './components/MyProfile';
+import History from './components/History'
+
 
 function App() {
   const location = useLocation();
@@ -22,8 +27,17 @@ function App() {
     { path: '/login', element: <Login /> },
     { path: '/signup', element: <SignUp /> },
     { path: '/verify-email', element: <VerifyEmail /> },
+    {
+      path: '/profile',
+      element: <Profile />,
+      children: [
+        { path: 'dashboard', element: <Dashboard /> },
+        { path: 'mycart', element: <MyCart /> },
+        { path: 'history', element: <History />},
+      ],
+    },
   ]);
-  
+
   // Conditionally render NavBar based on the route
   return (
     <Fragment>
