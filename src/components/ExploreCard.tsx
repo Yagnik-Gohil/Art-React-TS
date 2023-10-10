@@ -21,33 +21,37 @@ function ExploreCard({ data }: any) {
   return (
     <Fragment>
       <div className="col-3 explore-card">
-        <div>
+        <div className="rounded">
           <img
             src={data.path}
             alt="product"
             className="explore-card-image"
             onClick={handleClick}
           ></img>
-          <div className="explore-card-icons-div">
-            <AiFillHeart
-              size={20}
-              className="heart-fill mx-2 explore-icon"
-            ></AiFillHeart>
-            <FaEye
-              size={20}
-              className="fill-black mx-2 explore-icon"
-              onClick={handleShow}
-            ></FaEye>
-            <BsCartPlusFill
-              size={20}
-              className="fill-black mx-2 explore-icon"
-            ></BsCartPlusFill>
+          <div className="explore-card-icons-div d-flex justify-content-center">
+            <div className="d-flex align-items-start">
+              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center">
+                <AiFillHeart size={18} className="heart-fill"></AiFillHeart>
+              </div>
+              <div
+                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center"
+                onClick={handleShow}
+              >
+                <FaEye size={18} className="fill-black"></FaEye>
+              </div>
+              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center">
+                <BsCartPlusFill
+                  size={18}
+                  className="fill-black"
+                ></BsCartPlusFill>
+              </div>
+            </div>
           </div>
         </div>
-        <h5 className="m-0 pt-2">{data.title}</h5>
-        <p>
+        <h6 className="pt-2">{data.title}</h6>
+        <h6>
           Price: {data.price} {data.currency}
-        </p>
+        </h6>
       </div>
 
       <Modal
@@ -58,7 +62,7 @@ function ExploreCard({ data }: any) {
       >
         <div>
           <div className="model-image">
-            <img src={data.path} alt="product"></img>
+            <img src={data.path} alt="product" className="rounded-top"></img>
           </div>
           <div className="text-center p-1">
             <Button variant="light" size="sm" className="border mx-2">
