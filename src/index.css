@@ -56,6 +56,10 @@ a,
   background-color: white;
 }
 
+.bg-transparent {
+  background-color: transparent;
+}
+
 /* ===== Card Start ===== */
 
 .explore-card {
@@ -108,8 +112,14 @@ a,
 
 .explore-icon:hover {
   transform: scale(1.2);
-  -webkit-transition: 0.2s ease-in-out;
-  transition: 0.2s ease-in-out;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+.model-image {
+  max-height: 70vh;
+}
+.model-image > img {
+  max-height: inherit;
 }
 
 /* ===== Card End ===== */
