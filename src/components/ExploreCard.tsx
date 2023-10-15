@@ -30,16 +30,16 @@ function ExploreCard({ data }: any) {
           ></img>
           <div className="explore-card-icons-div d-flex justify-content-center">
             <div className="d-flex align-items-start">
-              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center">
+              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow">
                 <AiFillHeart size={18} className="heart-fill"></AiFillHeart>
               </div>
               <div
-                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center"
+                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
                 onClick={handleShow}
               >
                 <FaEye size={18} className="fill-black"></FaEye>
               </div>
-              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center">
+              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow">
                 <BsCartPlusFill
                   size={18}
                   className="fill-black"
