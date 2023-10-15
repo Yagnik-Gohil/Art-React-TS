@@ -1,4 +1,4 @@
-import { AiFillHeart } from 'react-icons/ai';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { FaEye } from 'react-icons/fa';
 import { BsCartPlusFill } from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
@@ -11,9 +11,14 @@ function ExploreCard({ data }: any) {
 
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
+  const [isLiked, setIsLiked] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleLike = () => {
+    setIsLiked(!isLiked);
+  };
 
   const handleClick = () => {
     navigate(`/product/${data.id}`);
@@ -30,8 +35,12 @@ function ExploreCard({ data }: any) {
           ></img>
           <div className="explore-card-icons-div d-flex justify-content-center">
             <div className="d-flex align-items-start">
-              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow">
-                <AiFillHeart size={18} className="heart-fill"></AiFillHeart>
+              <div
+                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
+                onClick={handleLike}
+              >
+                {isLiked ? <AiFillHeart size={18} className="heart-fill heart-animation"></AiFillHeart> : <AiOutlineHeart size={18} className="heart-fill"></AiOutlineHeart>}
+                
               </div>
               <div
                 className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"

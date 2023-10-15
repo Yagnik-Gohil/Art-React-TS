@@ -128,6 +128,22 @@ a,
   max-height: inherit;
 }
 
+.heart-animation {
+  animation: animate-heart 0.8s ease
+}
+
+@keyframes animate-heart {
+  0% {
+    transform: scale(0.5, 0.5);
+  }
+  40% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
 /* ===== Card End ===== */
 
 /* ===== Sidebar Start ===== */
