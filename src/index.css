@@ -287,7 +287,7 @@ a,
 
 .profile-page {
   background-color: #fff;
-  padding:0 2rem;
+  padding: 0 2rem;
   border: 1px solid #cccbcb;
   height: auto;
   min-height: 75vh;
@@ -298,17 +298,17 @@ a,
   padding: 0.2rem;
 }
 
-.profile-img{
+.profile-img {
   object-fit: cover;
   width: 6rem;
   height: 6rem;
 }
 
-.history-table td{
-  padding:1rem 0;
+.history-table td {
+  padding: 1rem 0;
 }
-.history-table th{
-  padding:0.8rem 0;
+.history-table th {
+  padding: 0.8rem 0;
   border: none;
 }
 
@@ -328,3 +328,113 @@ a,
 }
 
 /* ===== profile End ===== */
+
+/* ===== Home Start ===== */
+
+.home-carousel {
+  width: 80rem;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.carousel-image {
+  height: auto;
+  overflow: hidden;
+  padding: 0 4rem;
+}
+
+.carousel-image img {
+  min-height: 20rem;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+}
+
+.home-carousel .carousel-indicators {
+  display: none;
+}
+
+.home-carousel .carousel-control-next,
+.home-carousel .carousel-control-prev {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.274);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home-card {
+  width: 19rem;
+  margin: 0 10px;
+  height: 8rem;
+  overflow: hidden;
+}
+
+.home-card:hover {
+  cursor: pointer;
+}
+
+.home-card .card-image {
+  object-fit:cover ;
+  min-height: 8rem;
+  max-height: 10rem;
+  max-width: 100%;
+}
+
+.home-Products {
+  padding: 1.6rem 1.2rem;
+  border: 4px solid #aac0fc;
+  border-radius: 3rem;
+}
+
+.product {
+  overflow: hidden;
+  width: 25rem;
+  height: 20rem;
+  margin: 0.2rem;
+  border-radius: 3rem;
+}
+
+.product-img {
+  object-fit: cover;
+}
+
+.product:hover .product-img {
+  transform: scale(1.15);
+  transition:0.5s;
+  cursor: pointer;
+}
+
+
+
+@media only screen and (max-width: 992px){
+  
+  .product {
+    width: 12rem;
+    height: 10rem;
+  }
+  .home-card {
+    height: 7rem;
+    width: 20rem;
+  }
+  .home-card .card-body {
+    margin: 0 0rem;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .home-card {
+    height: 15rem;
+  }
+  .home-card .card-body {
+    margin: 0 1.2rem;
+  }
+  .product{
+    width: 10rem;
+    height: 8rem;
+  }
+}
+/* ===== Home End ===== */
