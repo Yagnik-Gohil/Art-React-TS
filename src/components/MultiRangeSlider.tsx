@@ -21,8 +21,8 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
   max,
   onChange,
 }) => {
-  const [minVal, setMinVal] = useState(1000);
-  const [maxVal, setMaxVal] = useState(10000);
+  const [minVal, setMinVal] = useState(1);
+  const [maxVal, setMaxVal] = useState(50000);
   const minValRef = useRef<HTMLInputElement>(null);
   const maxValRef = useRef<HTMLInputElement>(null);
   const range = useRef<HTMLDivElement>(null);
@@ -72,7 +72,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
   };
   const handleMax = (event: any) => {
     // const value = Math.min(Math.max(+event.target.value, minVal + 1), max);
-    if(event.target.value <= max) {
+    if(event.target.value > minVal) {
       setMaxVal(+event.target.value);
     }
     // event.target.value = value.toString();

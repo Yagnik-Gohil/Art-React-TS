@@ -155,6 +155,9 @@ a,
   z-index: 1;
   overflow-y: auto;
 }
+.filter-button {
+  min-width: 100%;
+}
 
 /* ===== Sidebar End ===== */
 

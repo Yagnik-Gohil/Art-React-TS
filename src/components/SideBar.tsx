@@ -5,9 +5,9 @@ import Form from 'react-bootstrap/Form';
 import Colours from '../utils/colour';
 import Medium from '../utils/medium';
 import DisplaySpots from '../utils/displaySpots';
+import { Button } from 'react-bootstrap';
 
 function SideBar() {
-
   const [sortBy, setSortBy] = useState('popular-items');
 
   const handleRange = ({ min, max }: { min: number; max: number }) => {
@@ -20,7 +20,7 @@ function SideBar() {
   return (
     <Fragment>
       <h4 className="fw-bold mt-2">Filters</h4>
-      <Accordion defaultActiveKey={['0','1']} className='custom-scroll'>
+      <Accordion defaultActiveKey={['0', '1']} className="custom-scroll">
         <Accordion.Item eventKey="0">
           <Accordion.Header>SORT BY</Accordion.Header>
           <Accordion.Body className="form-filter custom-scroll">
@@ -82,11 +82,7 @@ function SideBar() {
         <Accordion.Item eventKey="1">
           <Accordion.Header>PRICE</Accordion.Header>
           <Accordion.Body>
-            <MultiRangeSlider
-              min={1}
-              max={50000}
-              onChange={handleRange}
-            />
+            <MultiRangeSlider min={1} max={50000} onChange={handleRange} />
           </Accordion.Body>
         </Accordion.Item>
 
@@ -147,6 +143,14 @@ function SideBar() {
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
+      <div className="row mt-4">
+        <div className='col'>
+        <Button className='filter-button' variant="primary">Apply</Button>
+        </div>
+        <div className='col'>
+        <Button className='filter-button' variant="secondary">Reset</Button>
+        </div>
+      </div>
     </Fragment>
   );
 }
