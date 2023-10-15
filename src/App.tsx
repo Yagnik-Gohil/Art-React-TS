@@ -12,7 +12,8 @@ import VerifyEmail from './pages/VerifyEmail';
 import Profile from './pages/Profile';
 import MyCart from './components/MyCart';
 import Dashboard from './components/MyProfile';
-import History from './components/History'
+import History from './components/History';
+import Product from './pages/Product';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         { path: 'history', element: <History />},
       ],
     },
+    { path: '/product/:id' ,element: <Product/> }
   ]);
 
   // Conditionally render NavBar based on the route
