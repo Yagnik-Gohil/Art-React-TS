@@ -155,7 +155,7 @@ a,
   z-index: 1;
   overflow-y: auto;
 }
-.filter-button {
+.min-w-100 {
   min-width: 100%;
 }
 
@@ -636,6 +636,10 @@ a,
   transform: scale(1.2);
   -webkit-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
+}
+
+.verified-tick {
+  color: #1DA1F2;
 }
 
 /* ===== Product End ===== */

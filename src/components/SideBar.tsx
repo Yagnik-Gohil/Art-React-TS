@@ -145,10 +145,10 @@ function SideBar() {
       </Accordion>
       <div className="row mt-4">
         <div className='col'>
-        <Button className='filter-button' variant="primary">Apply</Button>
+        <Button className='min-w-100' variant="primary">Apply</Button>
         </div>
         <div className='col'>
-        <Button className='filter-button' variant="secondary">Reset</Button>
+        <Button className='min-w-100' variant="secondary">Reset</Button>
         </div>
       </div>
     </Fragment>
