@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { Image } from 'react-bootstrap';
 
 const HomeCard = ({ data }: any) => {
   return (
- 
-    <div className="">
-    <div className="card home-card float-right my-3">
+    <div className="card home-card p-0 m-2 float-right">
       <div className="row">
         <div className="col-sm-6">
           <img
@@ -21,10 +20,7 @@ const HomeCard = ({ data }: any) => {
         </div>
       </div>
     </div>
-  </div>
-  
+  );
+};
 
-  )
-}
-
-export default HomeCard
+export default HomeCard;

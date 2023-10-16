@@ -4,8 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 const HomeCarousel = () => {
   return (
     <div>
-       <div className="d-flex justify-content-center">
-        <Carousel fade className="home-carousel">
+       <div className="d-flex justify-content-center mt-4">
+        <Carousel className="home-carousel">
           <Carousel.Item>
             <div className="carousel-image">
               <Image src="https://arts.mojarto.com/siteImages/homePageBanners/843292/original/843292.jpg" />
