@@ -4,8 +4,10 @@ import ProductImages from '../utils/trending';
 import HomeCarousel from '../components/HomeCarousel';
 import HomeCard from '../components/HomeCard';
 import Trending from '../components/Trending';
-import artists from '../utils/artists'
+import artists from '../utils/artists';
 import ArtistsCard from '../components/ArtistsCard';
+import ReviewCard from '../components/ReviewCard';
+import Reviews from '../utils/review';
 import { Button, Card } from 'react-bootstrap';
 
 function Home() {
@@ -76,15 +78,27 @@ function Home() {
       <br></br>
       <h1 className="py-3">Our Artists</h1>
       <br></br>
-      <div className="home-artist row">
-        {artists.map((data: any,index: number)=>{
-          return   <ArtistsCard data={data} key={index}/>;
-        })}
-      
+      <div className="home-artist">
+        <div className="row">
+          {artists.map((data: any, index: number) => {
+            return <ArtistsCard data={data} key={index} />;
+          })}
+        </div>
+        <br />
+        <div className="d-flex justify-content-center">
+          <Button className="w-25"> view more</Button>
+        </div>
       </div>
+      <br></br>
+      <h1 className="py-3">Our Costomers</h1>
+      <br></br>
 
-      <br></br>
-      <br></br>
+      <div className="row">
+       {Reviews.map((data: any,index: number) => {
+         return <ReviewCard data={data} key={index} />
+       })}
+      </div>
+      <br /><br />
     </>
   );
 }
