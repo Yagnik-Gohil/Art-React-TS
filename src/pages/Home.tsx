@@ -10,7 +10,7 @@ import ReviewCard from '../components/ReviewCard';
 import Reviews from '../utils/review';
 import { Button, Card } from 'react-bootstrap';
 
-function Home() {
+const Home = () => {
   const Buttons = () => {
     return (
       <div className="d-flex flex-wrap">
@@ -86,7 +86,7 @@ function Home() {
         </div>
         <br />
         <div className="d-flex justify-content-center">
-          <Button className="w-25"> view more</Button>
+          <Button> view more</Button>
         </div>
       </div>
       <br></br>
