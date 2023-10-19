@@ -1,7 +1,7 @@
 
-## Git Guidlines:
+## Git Guidelines:
 
-### Brnch related guidline:
+### Branch related Guidelines:
 
 ### For new feature:
 
@@ -27,7 +27,7 @@
 - [Hot-fix] fix pagination issue
 
 ### For code refactoring:
- - [Refactor] Refactor css file
+ - [Refactor] Refactor CSS file
  - [Refactor] Improve responsive design
 
 # Commit Messages:
@@ -38,10 +38,10 @@
  
 ### For bug/issue fix:
  - fix: remove alert from home page
- - fix: fix rediraction issue in home page
+ - fix: fix redirection issue in home page
  
 ### For refactor:
- - ref: modify css and readme file
+ - ref: modify CSS and readme file
  - ref: remove commented code
 
 ## Useful Commands 
