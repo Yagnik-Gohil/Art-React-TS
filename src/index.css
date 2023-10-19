@@ -428,13 +428,19 @@ a,
 
 }
 
-.home-btn{
+.home-btn {
   font-size:x-small;
   width: 9rem;
 }
 
+.home-artist .artist-img {
+   min-height: 200px;
+}
+.home-artist {
+  min-height: 400px;
+}
 
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 992px) {
   
   .trending {
     width: 14rem;
