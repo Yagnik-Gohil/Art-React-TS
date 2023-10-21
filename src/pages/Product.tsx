@@ -93,13 +93,13 @@ function Product() {
         </div>
       </div>
       <div className="row product-details">
-        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2">
           <div className="bg-light rounded product-image d-flex align-items-center justify-content-center custom-scroll">
             <img src={product?.path} alt="product" style={imageStyle}></img>
           </div>
         </div>
 
-        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2">
           <h2>{product?.title}</h2>
           <p>
             Art By: <span className="fw-bold">{product?.artist}</span> -
