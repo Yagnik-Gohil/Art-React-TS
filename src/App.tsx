@@ -14,6 +14,8 @@ import MyCart from './components/MyCart';
 import Dashboard from './components/MyProfile';
 import History from './components/History';
 import Product from './pages/Product';
+import Address from './components/Address';
+
 
 
 function App() {
@@ -33,6 +35,7 @@ function App() {
       element: <Profile />,
       children: [
         { path: 'dashboard', element: <Dashboard /> },
+        { path: 'address', element: <Address /> },
         { path: 'mycart', element: <MyCart /> },
         { path: 'history', element: <History />},
       ],
@@ -45,7 +48,8 @@ function App() {
     <Fragment>
       {!['/login', '/signup', '/verify-email'].includes(location.pathname) && <NavBar />}
       <Container>{element}</Container>
-    </Fragment>
+   
+    </Fragment>    
   );
 }
 

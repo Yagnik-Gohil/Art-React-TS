@@ -13,6 +13,11 @@ const ProfileNav = () => {
                 </Link>
               </li>
               <li>
+                <Link to={'/profile/address'} className="nav-link border border-bottom-0">
+                  ADDRESS
+                </Link>
+              </li>
+              <li>
                 <Link to={'/profile/mycart'} className="nav-link border border-bottom-0">
                   MY CART
                 </Link>
