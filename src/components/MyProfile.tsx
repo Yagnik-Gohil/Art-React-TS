@@ -11,36 +11,21 @@ import { FaCircleUser } from 'react-icons/fa6';
 
 const MyProfile = () => {
   const [isEditing, setIsEditing] = useState<boolean>(false);
-  const [city, setCity] = useState('Bhavnagar');
-  const [state, setState] = useState('Gujrat');
-  const [country, setCountry] = useState('India');
+  const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
   const initialFormData = {
     fullName: 'name surname',
     email: 'mymail123@gmail.com',
-    address: '152,pryosha,bhavnagar',
-    zipCode: '365501',
+    phone: '9857445125'
   };
 
   const [form, setForm] = useState(initialFormData);
 
-  const handleForm = (e: any) => {
+  const handleForm = (e:any) => {
     setForm((prevForm) => ({
       ...prevForm,
       [e.target.name]: e.target.value,
     }));
-  };
-
-  const handleCity = (e: any) => {
-    setCity(e.target.value);
-  };
-
-  const handleState = (e: any) => {
-    setState(e.target.value);
-  };
-
-  const handleCountry = (e: any) => {
-    setCountry(e.target.value);
   };
 
   const handleEditClick = () => {
@@ -56,9 +41,11 @@ const MyProfile = () => {
     setForm(initialFormData);
   };
 
-  const UploadAndDisplayImage = () => {
-    const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const handleImageChange = (selectedFile: File | null) => {
+    setSelectedImage(selectedFile);
+  };
 
+  const UploadAndDisplayImage = () => {
     return (
       <div>
         <Card className="my-4">
@@ -86,7 +73,7 @@ const MyProfile = () => {
                       const selectedFile =
                         event.target.files && event.target.files[0];
                       if (selectedFile) {
-                        setSelectedImage(selectedFile);
+                        handleImageChange(selectedFile);
                       }
                     }}
                   />
@@ -105,7 +92,7 @@ const MyProfile = () => {
       <UploadAndDisplayImage />
       <Form>
         <div className="mb-3 row">
-          <Form.Group className="col" controlId="formGridEmail">
+          <Form.Group className="col-12 pb-3" controlId="formGridEmail">
             <Form.Label>Full Name</Form.Label>
             <Form.Control
               type="text"
@@ -128,72 +115,16 @@ const MyProfile = () => {
               onChange={handleForm}
             />
           </Form.Group>
-        </div>
-
-        <Form.Group className="mb-3 col" controlId="formGridAddress1">
-          <Form.Label>Address</Form.Label>
-          <Form.Control
-            placeholder="1234 Main St"
-            name="address"
-            value={form.address}
-            disabled={!isEditing}
-            onChange={handleForm}
-          />
-        </Form.Group>
-
-        <div className="mb-3 row">
-          <Form.Group className="col" controlId="formGridState">
-            <Form.Label>Country</Form.Label>
-            <Form.Select
-              defaultValue={country}
-              disabled={!isEditing}
-              onChange={handleCountry}
-            >
-              <option>Choose...</option>
-              <option>India</option>
-              <option>Japan</option>
-              <option>Pakistan</option>
-            </Form.Select>
-          </Form.Group>
-
-          <Form.Group className="col" controlId="formGridState">
-            <Form.Label>State</Form.Label>
-            <Form.Select
-              defaultValue={state}
-              disabled={!isEditing}
-              onChange={handleState}
-            >
-              <option>Choose...</option>
-              <option>Gujrat</option>
-              <option>Goa</option>
-              <option>Punjab</option>
-            </Form.Select>
-          </Form.Group>
-        </div>
-        <div className="mb-3 row">
           <Form.Group className="col" controlId="formGridEmail">
-            <Form.Label>Zip Code</Form.Label>
+            <Form.Label>Phone No</Form.Label>
             <Form.Control
               type="text"
-              name="zipCode"
-              placeholder="Enter code"
-              value={form.zipCode}
+              name="phone"
+              placeholder="Enter Phone No"
+              value={form.phone}
               disabled={!isEditing}
               onChange={handleForm}
             />
-          </Form.Group>
-          <Form.Group className="col" controlId="formGridState">
-            <Form.Label>City</Form.Label>
-            <Form.Select
-              defaultValue={city}
-              disabled={!isEditing}
-              onChange={handleCity}
-            >
-              <option>Choose...</option>
-              <option>Bhavnagar</option>
-              <option>Vadodara</option>
-              <option>Surat</option>
-            </Form.Select>
           </Form.Group>
         </div>
 
@@ -225,7 +156,6 @@ const MyProfile = () => {
 
       <h2 className="pb-3">Change Password</h2>
       <Form className="pb-4">
-      <Form className="pb-4">
         <Form.Group className="col my-2" controlId="formGridEmail">
           <Form.Label>Current Password</Form.Label>
           <Form.Control type="password" placeholder="Enter Current Password" />
@@ -239,7 +169,6 @@ const MyProfile = () => {
           <Form.Control type="password" placeholder="Retype New Password" />
         </Form.Group>
         <Button className="profile-btn my-3 px-5">Save</Button>
-      </Form>
       </Form>
     </div>
   );

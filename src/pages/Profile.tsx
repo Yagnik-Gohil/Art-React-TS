@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MyCart from '../components/MyCart';
 import { Container } from 'react-bootstrap';
+import Address from '../components/Address';
 import MyProfile from '../components/MyProfile';
 import History from '../components/History';
 import ProfileNav from '../components/ProfileNav';
@@ -17,6 +18,7 @@ const Profile = () => {
         <div className="py-5 col-md-9">
           <Routes>
             <Route path="/" element={<MyProfile />} />
+            <Route path="/address" element={<Address />} />
             <Route path="/mycart" element={<MyCart />} />
             <Route path="/history" element={<History />} />
           </Routes>
