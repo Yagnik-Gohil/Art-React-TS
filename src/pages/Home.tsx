@@ -2,7 +2,7 @@ import React from 'react';
 import Images from '../utils/category';
 import ProductImages from '../utils/trending';
 import HomeCarousel from '../components/HomeCarousel';
-import HomeCard from '../components/HomeCard';
+import CategoryCard from '../components/CategoryCard';
 import Trending from '../components/Trending';
 import artists from '../utils/artists';
 import ArtistsCard from '../components/ArtistsCard';
@@ -55,9 +55,9 @@ const Home = () => {
       <h1 className="py-3">Explore By Category</h1>
       <br></br>
 
-      <div className="d-flex justify-content-center flex-wrap">
+      <div className="row">
         {Images.map((data: any, index: number) => {
-          return <HomeCard data={data} key={index}></HomeCard>;
+          return <CategoryCard data={data} key={index}></CategoryCard>;
         })}
       </div>
 
@@ -65,7 +65,7 @@ const Home = () => {
       <h1 className="py-3">Trending</h1>
       <br></br>
 
-      <div className="home-trending  justify-content-center d-flex flex-wrap">
+      <div className="home-trending row border border-5 p-4 shadow-lg">
         {ProductImages.map((data: any, index: number) => {
           return <Trending data={data} key={index}></Trending>;
         })}
@@ -90,7 +90,7 @@ const Home = () => {
         </div>
       </div>
       <br></br>
-      <h1 className="py-3">Our Costomers</h1>
+      <h1 className="py-3">Our Customers</h1>
       <br></br>
 
       <div className="row">
