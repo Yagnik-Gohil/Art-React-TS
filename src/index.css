@@ -363,6 +363,12 @@ a,
   background-color: #d8e7ff;
 }
 
+.address-card {
+  min-height: 18rem;
+  width: 18rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
 /* ===== profile End ===== */
 
 /* ===== Home Start ===== */
@@ -390,25 +396,15 @@ a,
   display: none;
 }
 
-.home-card {
-  width: 19.2rem;
-  height: 8rem;
-  overflow: hidden;
+.home-card-img{
+  height: 5rem;
+  width:5rem;
+  min-width: 5rem;
+  object-fit: cover;
 }
 
 .home-card:hover {
   cursor: pointer;
-}
-
-.home-card .card-image {
-  object-fit:cover ;
-  min-height: 8rem;
-  max-height: 10rem;
-  max-width: 100%;
-}
-.trending {
-  width: 33%;
-  height: 20rem;
 }
 
 .image-container {
@@ -418,6 +414,14 @@ a,
   width: 100%;
 }
 
+.home-trending {
+  border-radius: 1rem;
+}
+
+.trending {
+  height: 20rem;
+}
+
 .trending-img {
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
@@ -425,7 +429,6 @@ a,
 
 .image-container:hover .trending-img {
   transform: scale(1.1);
-
 }
 
 .home-btn {
@@ -433,37 +436,25 @@ a,
   width: 9rem;
 }
 
-.home-artist .artist-img {
-   min-height: 200px;
-}
+
 .home-artist {
   min-height: 400px;
 }
 
 @media only screen and (max-width: 992px) {
-  
-  .trending {
-    width: 14rem;
-    height: 10rem;
-  }
 
-  .home-card .card-body {
-    margin: 0 0rem;
-  }
   .home-btn{
    width: 8.5rem;
    margin:0.5rem 0;
   }
 
+  .trending{
+    height: 10rem;
+  }
 }
 @media only screen and (max-width: 575px) {
-  .home-card {
-    height: 15rem;
-  }
-
   .trending{
-    width: 8rem;
-    height: 6rem;
+    height: 5rem;
   }
 }
 /* ===== Home End ===== */

@@ -3,9 +3,9 @@ import { Image } from 'react-bootstrap';
 
 const Trending = ({ data }: any) => {
   return (
-    <>
-      <div className="d-flex p-2 flex-wrap trending">
-        <div className="image-container">
+   
+      <div className="col-4 p-1">
+        <div className="image-container trending">
           <Image
             className="trending-img img-fluid h-100 w-100"
             src={data.path}
@@ -13,7 +13,7 @@ const Trending = ({ data }: any) => {
           />
         </div>
       </div>
-    </>
+    
   );
 };
 export default Trending;
