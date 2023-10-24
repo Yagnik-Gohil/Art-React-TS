@@ -14,7 +14,7 @@
 
 ### For code refactor:
 - refactor/code-formatting
-- refactor/api-call
+- refactor/API-call
 
 ### Merge Request Title:
 
@@ -23,7 +23,7 @@
  - [Feature] added pagination
 
 ### For Bug/Issue fix:
-- [Hot-fix] Remove xyz
+- [Hot-fix] Remove Your repo
 - [Hot-fix] fix pagination issue
 
 ### For code refactoring:

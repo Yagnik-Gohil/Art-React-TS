@@ -416,15 +416,21 @@ a,
 
 .home-trending {
   border-radius: 1rem;
+  min-height: 10rem;
 }
 
 .trending {
   height: 20rem;
+  /* width: 22rem; */
 }
 
 .trending-img {
   object-fit: cover;
   transition: transform 0.3s ease-in-out;
+}
+
+.review-image {
+  object-fit: cover;
 }
 
 .image-container:hover .trending-img {
@@ -437,24 +443,29 @@ a,
 }
 
 
-.home-artist {
-  min-height: 400px;
+.home-artist-div {
+  max-width: 17rem;
+}
+
+.home-arist-img {
+  height: 17rem;
+  object-fit: cover;
 }
 
 @media only screen and (max-width: 992px) {
 
+  .trending {
+    height: 15rem;
+  }
   .home-btn{
    width: 8.5rem;
    margin:0.5rem 0;
   }
 
-  .trending{
-    height: 10rem;
-  }
 }
 @media only screen and (max-width: 575px) {
-  .trending{
-    height: 5rem;
+  .trending {
+    width: 18rem;
   }
 }
 /* ===== Home End ===== */
@@ -516,3 +527,46 @@ a,
 }
 
 /* ===== Product End ===== */
+
+/* ===== Artist Start ===== */
+
+.img-div {
+  height: 16rem;
+}
+
+.artist-img-div {
+  max-width: min-content;
+  position: absolute;
+  top: 8rem;
+  left: 1.2rem;
+}
+
+.artist-image{
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+  background: #fff;
+}
+.artist-card-grid {
+  column-count: 3;
+  gap: 0;
+}
+
+.artist-grid-img > img {
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.artist-grid-img:hover img {
+  transform: scale(0.9);
+}
+
+
+
+@media only screen and (max-width: 992px) { 
+.artist-card-grid {
+  column-count: 2;
+}
+}
+
+/* ===== Artist ENd ===== */

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Form, ListGroup, Modal } from 'react-bootstrap';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
-
+import { PiPlusCircleThin } from 'react-icons/pi';
+import { AiOutlineCheckCircle } from 'react-icons/ai';
 const Address = () => {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -68,33 +68,27 @@ const Address = () => {
     setShowForm(true);
   };
 
+  const [defaultIndex, setDefaultIndex] = useState(-1);
+
+  const handleSetAsDefault = (index: number) => {
+    setDefaultIndex(index);
+  };
+
   return (
     <div>
       <div className="d-flex flex-wrap">
-        <Card className="address-card" onClick={handleShowForm}>
-          <AiOutlinePlusCircle className="mx-auto my-auto" size={100} />
-        </Card>
-
-        <Card className="address-card">
-          <h5 className="text-center  m-2">Default</h5>
-          <hr className="m-0" />
-          <Card.Body>
-            <h5>data.name</h5>
-            <h6>data.street</h6>
-            <h6>data.city</h6>
-            <h6>data.state</h6>
-            <h6>data.country</h6>
-            <h6>data.pincode</h6>
-
-            <Button variant="secondary btn-sm">Delete</Button>
-            <Button className="mx-2 btn-sm" variant="secondary">
-              Edit
-            </Button>
-          </Card.Body>
+        <Card className="address-card m-2" onClick={handleShowForm}>
+          <PiPlusCircleThin
+            className="mx-auto my-auto text-secondary"
+            size={100}
+          />
         </Card>
 
         {submittedData.map((data, index) => (
-          <Card key={index} className="address-card">
+          <Card key={index} className="address-card position-relative m-2">
+            {defaultIndex === index && (
+              <AiOutlineCheckCircle className="position-absolute top-0 start-100 translate-middle default-icon" />
+            )}
             <Card.Body>
               <h5>{data.name}</h5>
               <h6>{data.street}</h6>
@@ -115,6 +109,13 @@ const Address = () => {
                 onClick={() => handleEditCard(index)}
               >
                 Edit
+              </Button>
+              <Button
+                className="btn-sm"
+                variant="secondary"
+                onClick={() => handleSetAsDefault(index)}
+              >
+                Set as Default
               </Button>
             </Card.Body>
           </Card>
