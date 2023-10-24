@@ -16,7 +16,7 @@ const ReviewCard = ({ data }: any) => {
               src={data.path}
               height="70px"
               width="70px"
-              className="rounded-circle object-fit-cover p-1"
+              className="rounded-circle review-image p-1"
               alt=""
             />
           </div>

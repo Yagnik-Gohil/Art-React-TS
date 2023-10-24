@@ -15,6 +15,7 @@ import Dashboard from './components/MyProfile';
 import History from './components/History';
 import Product from './pages/Product';
 import Address from './components/Address';
+import ArtistPage from './pages/ArtistPage';
 
 
 
@@ -40,7 +41,8 @@ function App() {
         { path: 'history', element: <History />},
       ],
     },
-    { path: '/product/:id' ,element: <Product/> }
+    { path: '/product/:id' ,element: <Product/> },
+    { path: '/ArtistPage' ,element: <ArtistPage/> }
   ]);
 
   // Conditionally render NavBar based on the route
