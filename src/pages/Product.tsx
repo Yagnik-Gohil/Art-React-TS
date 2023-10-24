@@ -6,6 +6,7 @@ import { GrFormNext } from 'react-icons/gr';
 import { MdVerified } from 'react-icons/md';
 import { TbZoomIn, TbZoomOut, TbZoomReset } from 'react-icons/tb';
 import { Button, Table } from 'react-bootstrap';
+import ExploreCard from '../components/ExploreCard';
 
 function Product() {
   const params = useParams();
@@ -13,24 +14,25 @@ function Product() {
 
   const [product, setProduct] = useState<any>();
   const [height, setHeight] = useState(100);
+  const [limit, setLimit] = useState(5);
+
   const price = new Intl.NumberFormat('en-IN', {
     maximumSignificantDigits: 3,
   }).format(product?.price);
 
   const handleBack = () => {
-    navigate(-1);
+    navigate('/explore');
   };
 
   useEffect(() => {
     const product = Images.find((o) => o.id === params.id);
     setProduct(product);
-  }, []);
+    window.scrollTo(0, 0);
+  }, [params]);
 
   const handleZoomIn = () => {
-    console.log(height);
     if (height < 150) {
       // Adjust the maximum zoom level as needed
-      console.log('first');
       setHeight(height + 20);
     }
   };
@@ -40,6 +42,10 @@ function Product() {
       // Adjust the minimum zoom level as needed
       setHeight(height - 20);
     }
+  };
+
+  const handleViewMore = () => {
+    setLimit(limit + 5);
   };
 
   const handleZoomReset = () => {
@@ -87,16 +93,17 @@ function Product() {
         </div>
       </div>
       <div className="row product-details">
-        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2">
           <div className="bg-light rounded product-image d-flex align-items-center justify-content-center custom-scroll">
             <img src={product?.path} alt="product" style={imageStyle}></img>
           </div>
         </div>
 
-        <div className="col-lg-6 col-md-6 col-sm-12 my-2">
+        <div className="col-lg-6 col-md-12 col-sm-12 my-2">
           <h2>{product?.title}</h2>
           <p>
-            Art By: <span className="fw-bold">{product?.artist}</span>{' '}
+            Art By: <span className="fw-bold">{product?.artist}</span> -
+            Udaipur, India
           </p>
           <h1>₹ {price}</h1>
           <hr></hr>
@@ -137,29 +144,52 @@ function Product() {
                   })}
                 </td>
               </tr>
-              {
-                product?.is_signed_by_artist &&
+              {product?.is_signed_by_artist && (
                 <tr>
-                  <td colSpan={2} className='p-2 text-center'>
-                    <MdVerified size={40} className='verified-tick'></MdVerified> Signature of the artist and certificate are included.
+                  <td colSpan={2} className="p-2 text-center">
+                    <MdVerified
+                      size={40}
+                      className="verified-tick"
+                    ></MdVerified>{' '}
+                    Signature of the artist and certificate are included.
                   </td>
                 </tr>
-              }
+              )}
             </tbody>
           </Table>
 
-          <div className='row'>
-              <div className='col-md-4 col-sm-12 mt-2'>
-                <Button className='min-w-100 fw-bold'>BUY NOW</Button>
-              </div>
-              <div className='col-md-4 col-sm-12 mt-2'>
-                <Button className='min-w-100 fw-bold'>ADD TO CART</Button>
-              </div>
-              <div className='col-md-4 col-sm-12 mt-2'>
-                <Button className='min-w-100 fw-bold'>ADD TO WISHLIST</Button>
-              </div>
+          <div className="row">
+            <div className="col-md-4 col-sm-12 mt-2">
+              <Button className="min-w-100 fw-bold">BUY NOW</Button>
+            </div>
+            <div className="col-md-4 col-sm-12 mt-2">
+              <Button className="min-w-100 fw-bold">ADD TO CART</Button>
+            </div>
+            <div className="col-md-4 col-sm-12 mt-2">
+              <Button className="min-w-100 fw-bold">ADD TO WISHLIST</Button>
+            </div>
           </div>
         </div>
+
+        <hr className="my-5"></hr>
+
+        <h4>More Works by {product?.artist}</h4>
+        <div className="bg-light rounded text-center pt-5 pb-4">
+          <div className="row d-flex justify-content-center">
+            {Images.slice(0, limit).map((data: any, index: number) => {
+              return (
+                <div className="col-2 explore-card" key={index}>
+                  <ExploreCard data={data}></ExploreCard>
+                </div>
+              );
+            })}
+          </div>
+          <Button className="my-2" onClick={handleViewMore}>
+            View More
+          </Button>
+        </div>
+
+        <hr className="my-5"></hr>
       </div>
     </Fragment>
   );

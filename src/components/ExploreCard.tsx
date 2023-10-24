@@ -25,43 +25,47 @@ function ExploreCard({ data }: any) {
   };
   return (
     <Fragment>
-      <div className="col-3 explore-card">
-        <div className="rounded">
-          <img
-            src={data.path}
-            alt="product"
-            className="explore-card-image"
-            onClick={handleClick}
-          ></img>
-          <div className="explore-card-icons-div d-flex justify-content-center">
-            <div className="d-flex align-items-start">
-              <div
-                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
-                onClick={handleLike}
-              >
-                {isLiked ? <AiFillHeart size={18} className="heart-fill heart-animation"></AiFillHeart> : <AiOutlineHeart size={18} className="heart-fill"></AiOutlineHeart>}
-                
-              </div>
-              <div
-                className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
-                onClick={handleShow}
-              >
-                <FaEye size={18} className="fill-black"></FaEye>
-              </div>
-              <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow">
-                <BsCartPlusFill
+      <div className="rounded">
+        <img
+          src={data.path}
+          alt="product"
+          className="explore-card-image"
+          onClick={handleClick}
+        ></img>
+        <div className="explore-card-icons-div d-flex justify-content-center">
+          <div className="d-flex align-items-start">
+            <div
+              className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
+              onClick={handleLike}
+            >
+              {isLiked ? (
+                <AiFillHeart
                   size={18}
-                  className="fill-black"
-                ></BsCartPlusFill>
-              </div>
+                  className="heart-fill heart-animation"
+                ></AiFillHeart>
+              ) : (
+                <AiOutlineHeart
+                  size={18}
+                  className="heart-fill"
+                ></AiOutlineHeart>
+              )}
+            </div>
+            <div
+              className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow"
+              onClick={handleShow}
+            >
+              <FaEye size={18} className="fill-black"></FaEye>
+            </div>
+            <div className="explore-icon mx-2 rounded-circle bg-light d-flex align-items-center justify-content-center shadow">
+              <BsCartPlusFill size={18} className="fill-black"></BsCartPlusFill>
             </div>
           </div>
         </div>
-        <h6 className="pt-2">{data.title}</h6>
-        <h6>
-          Price: {data.price} {data.currency}
-        </h6>
       </div>
+      <h6 className="pt-2">{data.title}</h6>
+      <h6>
+        Price: {data.price} {data.currency}
+      </h6>
 
       <Modal
         show={show}
