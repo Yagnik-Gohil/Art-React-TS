@@ -6,7 +6,7 @@ function ArtistCard({ data }: any) {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/ArtistPage`);
+    navigate(`/ArtistPage/${data.id}`);
   };
   return (
     <Fragment>
@@ -22,6 +22,7 @@ function ArtistCard({ data }: any) {
         <h4 className='mt-2'>
           {data.name}
         </h4>
+        <p>{data.address}</p>
       </div>
     </Fragment>
   );

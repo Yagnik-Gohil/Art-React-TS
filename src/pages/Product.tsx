@@ -21,7 +21,7 @@ function Product() {
   }).format(product?.price);
 
   const handleBack = () => {
-    navigate('/explore');
+    navigate(-1);
   };
 
   useEffect(() => {

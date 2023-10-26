@@ -42,7 +42,7 @@ function App() {
       ],
     },
     { path: '/product/:id' ,element: <Product/> },
-    { path: '/ArtistPage' ,element: <ArtistPage/> }
+    { path: '/ArtistPage/:id' ,element: <ArtistPage/> }
   ]);
 
   // Conditionally render NavBar based on the route
