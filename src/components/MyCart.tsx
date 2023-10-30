@@ -5,7 +5,7 @@ import { AiFillHeart } from 'react-icons/ai';
 
 const MyCart = () => {
   return (
-    <div className="profile-page py-5">
+    <div className="profile-page rounded py-5">
       <div className="d-flex row justify-content-center text-center">
         <AiFillHeart size={100} className="heart-fill"></AiFillHeart>
         <br />

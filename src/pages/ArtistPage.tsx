@@ -1,81 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams} from 'react-router-dom';
 import Images from '../utils/image';
-import { Button, InputGroup } from 'react-bootstrap';
+import Artist from '../utils/artists';
+import ExploreCard from '../components/ExploreCard';
+import { AiFillFacebook, AiFillInstagram } from 'react-icons/ai';
 
 const ArtistPage = () => {
+  const params = useParams();
+
+  const [artist, setArtist] = useState<any>();
+
+  useEffect(() => {
+    const artist = Artist.find((o) => o.id === params.id);
+    setArtist(artist);
+    window.scrollTo(0, 0);
+  }, [params]);
+
   return (
-    <div className="position-relative">
-      <div className="d-flex flex-nowrap">
-        {Images.slice(1, 4).map((data: any, index: number) => (
-          <div className="w-100 p-0 img-div" key={index}>
-            <div className="rounded-0 h-100">
+    <>
+      <div className="row">
+        <div className="col-md-4 col-lg-4 artist-sidebar py-5">
+          <div className='bg-light border border-dark rounded overflow-hidden'>
+            <div className="top-img-div position-relative">
               <img
-                src={data.path}
-                className="h-100 w-100 object-fit-cover"
+                src='https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60'
+                className="top-photo"
                 alt=""
               />
+              <div className='artist-img position-absolute top-100 start-50 translate-middle'>
+                <img
+                  className="rounded-circle"
+                  src={artist?.path} 
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className='text-center artist-details mt-5 p-5'>
+              
+              <h3 className='mt-2'>{artist?.name}</h3>
+              <h5>{artist?.address}</h5><br></br>
+              <p>
+                {artist?.description}
+              </p>
+              <div>
+                <img className='facebook mx-2' src='https://cdn-icons-png.flaticon.com/128/174/174848.png'></img>
+                <img className='instagram mx-2' src='https://cdn-icons-png.flaticon.com/128/2111/2111463.png'></img>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-
-      <div className="artist-img-div">
-        <img
-          src="https://media.istockphoto.com/id/1398385392/photo/happy-young-millennial-indian-business-woman-head-shot-portrait.jpg?s=612x612&w=0&k=20&c=QSRWD4KI7JCRJGdMKAhfUBv3Fc2v-7Nvu04iRMAPhGU="
-          className="artist-image rounded-circle p-2"
-          alt=""
-        />
-        <h2>Name Surname</h2>
-        <h4>Country</h4>
-      </div>
-      <div className="row mt-5 ">
-        <div className="col-md-4 mb-3">
-          <br />
-          <br /> <br /> <br />
-          <br /> <br />
-          <br />
-          <p className="px-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-            beatae tempore sit, sunt eaque nulla repellendus molestias
-            reprehenderit quis alias esse ullam. Voluptates, magnam maxime.
-          </p>
-          <div className="row">
-            <div className="col-4">
-                <h1>15k</h1>
-                <p>Follower</p>
-            </div>
-            <div className="col-4">
-                <h1>200</h1>
-                <p>Following</p>
-            </div>
-            <div className="col-4">
-                <h1>15</h1>
-                <p>Post</p>
-            </div>
+        </div>
+        <div className="col-md-8 col-lg-8">
+          <div className="row d-flex justify-content-center py-5">
+            {Images.map((data: any, index: number) => {
+              return (
+                <div className="col-3 explore-card" key={index}>
+                  <ExploreCard data={data}></ExploreCard>
+                </div>
+              );
+            })}
           </div>
-          <button className='btn btn-secondary'>Follow</button>
-          <button className='btn btn-secondary mx-3'>Message</button>
         </div>
-        <div className="col-md-8">
-       
-  <div className="artist-card-grid">
-    {Images.map((data: any, index: number) => {
-      return (
-        <div className="artist-grid-img p-2 align-self-start p-1">
-          <img
-            className="img-fluid object-fit-cover shadow-sm rounded-2"
-            src={data.path}
-            alt="product"
-          />
-        </div>
-      );
-    })}
-  </div>
-</div>
-
-
       </div>
-    </div>
+    </>
   );
 };
 
