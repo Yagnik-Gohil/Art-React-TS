@@ -13,8 +13,18 @@ const ProfileNav = () => {
                 </Link>
               </li>
               <li>
+                <Link to={'/profile/password'} className="nav-link border border-bottom-0">
+                  PASSWORD
+                </Link>
+              </li>
+              <li>
                 <Link to={'/profile/address'} className="nav-link border border-bottom-0">
                   ADDRESS
+                </Link>
+              </li>
+              <li>
+                <Link to={'/profile/mywishlist'} className="nav-link border border-bottom-0">
+                  MY WISHLIST
                 </Link>
               </li>
               <li>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MyCart from '../components/MyCart';
+import MyWishlist from '../components/MyWishlist'
+import Password from '../components/Password';
 import { Container } from 'react-bootstrap';
 import Address from '../components/Address';
 import MyProfile from '../components/MyProfile';
@@ -18,8 +20,10 @@ const Profile = () => {
         <div className="py-5 col-md-9">
           <Routes>
             <Route path="/" element={<MyProfile />} />
+            <Route path="/Password" element={<Password />} />
             <Route path="/address" element={<Address />} />
             <Route path="/mycart" element={<MyCart />} />
+            <Route path="/mywishlist" element={<MyWishlist />} />
             <Route path="/history" element={<History />} />
           </Routes>
         </div>
