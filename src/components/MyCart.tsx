@@ -1,13 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { AiFillHeart } from 'react-icons/ai';
+import { BsCart4 } from 'react-icons/bs';
 
 const MyCart = () => {
   return (
     <div className="profile-page rounded py-5">
       <div className="d-flex row justify-content-center text-center">
-        <AiFillHeart size={100} className="heart-fill"></AiFillHeart>
+        <BsCart4 size={150} className="m-3"></BsCart4>
         <br />
         <br />
         <h1>YOUR CART IS EMPTY</h1>
