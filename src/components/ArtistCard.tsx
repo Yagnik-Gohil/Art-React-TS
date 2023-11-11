@@ -30,14 +30,7 @@ function ArtistCard({ data }: any) {
         <div className='d-flex justify-content-end align-items-center w-50'>
           <img className='facebook mx-2' src='https://cdn-icons-png.flaticon.com/128/174/174848.png' alt="Facebook" />
           <img className='instagram mx-2' src='https://cdn-icons-png.flaticon.com/128/2111/2111463.png' alt="Instagram" />
-          <div className="explore-card-icons-div d-flex justify-content-center">
-            <div className="d-flex align-items-start">
-
-            <img className='facebook mx-2 explore-icon' src='https://cdn-icons-png.flaticon.com/128/3670/3670032.png'></img>
-                <img className='instagram mx-2 explore-icon' src='https://cdn-icons-png.flaticon.com/128/3955/3955024.png'></img>
-
-            </div>
-          </div>
+  
         </div>
       </div>
       <Carousel className='rounded overflow-hidden'>
