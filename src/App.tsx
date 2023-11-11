@@ -16,6 +16,8 @@ import History from './components/History';
 import Product from './pages/Product';
 import Address from './components/Address';
 import ArtistPage from './pages/ArtistPage';
+import Password from './components/Password';
+import MyWishlist from './components/MyWishlist';
 
 
 
@@ -36,7 +38,9 @@ function App() {
       element: <Profile />,
       children: [
         { path: 'dashboard', element: <Dashboard /> },
+        { path: 'password', element: <Password /> },
         { path: 'address', element: <Address /> },
+        { path: 'mywishlist', element: <MyWishlist /> },
         { path: 'mycart', element: <MyCart /> },
         { path: 'history', element: <History />},
       ],
