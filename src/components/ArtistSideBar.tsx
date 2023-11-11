@@ -2,11 +2,7 @@ import { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function ArtistSideBar() {
-  const [sortBy, setSortBy] = useState('popular-items');
 
-  const handleSort = (e: any) => {
-    setSortBy(e.target.value);
-  };
   return (
     <Fragment>
       <div className="mt-3">

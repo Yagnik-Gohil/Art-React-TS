@@ -4,11 +4,11 @@ import ArtistSideBar from '../components/ArtistSideBar';
 
 function Artists() {
   return (
-    <div className="row">
-    <div className="col-3 col-md-3 col-sm-4 sidebar py-5">
+    <div className="row justify-content-center">
+    <div className="col-lg-3 col-md-4 col-sm-12 artist-sidebar">
       <ArtistSideBar />
     </div>
-    <div className="col-9 col-md-9 col-sm-8 py-5">
+    <div className="col-lg-9 col-md-8 col-sm-12">
       <ArtistGrid />
     </div>
   </div>

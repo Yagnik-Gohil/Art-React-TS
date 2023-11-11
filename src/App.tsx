@@ -18,6 +18,7 @@ import Address from './components/Address';
 import ArtistPage from './pages/ArtistPage';
 import Password from './components/Password';
 import MyWishlist from './components/MyWishlist';
+import Footer from './pages/Footer';
 
 
 
@@ -54,7 +55,7 @@ function App() {
     <Fragment>
       {!['/login', '/signup', '/verify-email'].includes(location.pathname) && <NavBar />}
       <Container>{element}</Container>
-   
+      <Footer />
     </Fragment>    
   );
 }
