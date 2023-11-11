@@ -574,6 +574,40 @@ a,
 /* ===== Product End ===== */
 
 /* ===== Artist Start ===== */
+.artist-sidebar{
+  position: sticky;
+}
+
+@media only screen and (max-width: 575px) {
+  .artist-sidebar {
+    position: unset;
+  }
+}
+
+.artist-name{
+  cursor: pointer;
+}
+
+.artist-img-div {
+  height: 4rem;
+}
+
+.artist-img-div > .artists-img{
+  height: inherit;
+  width: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.carousel-img {
+  height: 10rem;
+  width: 95%;
+  object-fit: cover;
+}
+
+.carousel-indicators {
+  display: none;
+}
 
 .artist-sidebar {
   position: sticky;
